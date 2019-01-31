@@ -2,7 +2,7 @@
 
 ## Rappel des instructions du projet
 
-##### Correction des bugs
+### Correction des bugs
 
 Deux bugs à corriger dans le code.
 
@@ -123,7 +123,7 @@ Store.prototype.save = function (updateData, callback, id) {
 	};
 ```
 * Optimisation du code :
-Dans __controller.js__, on supprime une boucle *forEach* ainsi que le *console.log* qui alourdisse inutilement le code :
+Dans __controller.js__, on supprime une boucle *forEach* ainsi que le *console.log* qui alourdissent inutilement le code :
 ```
 Controller.prototype.removeItem = function (id) {
 		var self = this;
@@ -158,3 +158,150 @@ Controller.prototype.removeItem = function (id) {
 	};
 ```
 
+## Tests unitaires
+
+Le projet possédait déjà certains tests, effectués avec le framework Jasmine.
+On trouve les tests unitaires dans le dossier test/ControllerSpec.js
+Rajout de 10 tests unitaires supplémentaires (identifiable par le commentaire //Test ajouté) : 
+
+1. Doit montrer toutes les entrées au démarrage
+
+```	it('should show entries on start-up', function () {
+		//Test ajouté
+		setUpModel([]);
+
+		subject.setView('');
+
+		expect(view.render).toHaveBeenCalledWith('showEntries', []);
+	});
+```
+
+2. Doit montrer toutes les entrées actives
+Au sein du describe('routing')
+```
+		it('should show active entries', function () {
+			//Test ajouté
+			var todo = {id: 42, title: 'my todo', completed: false};
+			setUpModel([todo]);
+
+			subject.setView('#/active');
+
+			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+		});
+```
+3. Doit montrer toutes les entrées complètes
+Au sein du describe('routing')
+```
+		it('should show completed entries', function () {
+			//Test ajouté
+			var todo = {id: 42, title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+			subject.setView('#/completed');
+
+			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
+		});
+```
+
+4. Doit encadrer par défault le filtre "All"
+```
+	it('should highlight "All" filter by default', function () {
+		//Test ajouté
+		setUpModel([]);
+
+		subject.setView('');
+		expect(view.render).toHaveBeenCalledWith('setFilter', '');
+	});
+```
+
+5. Doit encadrer le filtre "Active" quand on passe à la vue active
+```
+	it('should highlight "Active" filter when switching to active view', function () {
+		//Test ajouté
+		setUpModel([]);
+
+		subject.setView('#/active');
+
+		expect(view.render).toHaveBeenCalledWith('setFilter', 'active');
+
+	});
+```
+
+6. Doit encadrer le filtre "Completed" quand on passe à la vue completed
+```
+	it('should highlight "Completed" filter when switching to active view', function () {
+		//Test ajouté
+		setUpModel([]);
+
+		subject.setView('#/completed');
+
+		expect(view.render).toHaveBeenCalledWith('setFilter', 'completed');
+	}); 
+```
+
+7. Doit cocher toutes les entrées en complétées
+Au sein du describe('toggle all')
+```
+		it('should toggle all todos to completed', function () {
+			//Test ajouté
+			var todos = [{id: 42, title: 'first todo', completed: false},
+						 {id: 43, title: 'second todo', completed: false}];
+			setUpModel(todos);
+
+			subject.setView('');
+
+			view.trigger('toggleAll', {completed: true});
+
+			expect(model.update).toHaveBeenCalledWith(42, {completed: true}, jasmine.any(Function));
+			expect(model.update).toHaveBeenCalledWith(43, {completed: true}, jasmine.any(Function));
+		});
+```
+
+8. Doit mettre à jour la vue
+Au sein du describe('toggle all')
+```
+		it('should update the view', function () {
+			//Test ajouté
+			var todos = [{id: 42, title: 'first todo', completed: false},
+						 {id: 43, title: 'second todo', completed: false}];
+			setUpModel(todos);
+
+			subject.setView('');
+
+			view.trigger('toggleAll', {completed: true});
+
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 42, completed: true});
+			expect(view.render).toHaveBeenCalledWith('elementComplete', {id: 43, completed: true});
+		});
+```
+
+9. Doit ajouter une nouvelle todo au model
+Au sein du describe('new todo')
+```
+it('should add a new todo to the model', function () {
+			//Test ajouté
+			var todo = {id: 42, title: 'existing todo', completed: false}
+			setUpModel([todo]);
+
+			subject.setView('');
+
+			view.trigger('newTodo', 'new todo');
+
+			expect(model.create).toHaveBeenCalledWith('new todo', jasmine.any(Function))
+		});
+```
+10. Doit supprimer une entrée du model
+Au sein du describe('element removal')
+```
+it('should remove an entry from the model', function () {
+			//Test Ajouté
+			var todo = {id: 42, title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+			subject.setView('');
+
+			view.trigger('itemRemove', {id: 42});
+
+			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
+		});
+```
