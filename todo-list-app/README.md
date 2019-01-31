@@ -18,7 +18,7 @@ Controller.prototype.adddItem = function (title) {
 		}
 ```
 
-Correction :
+*Correction* :
 ```
 Controller.prototype.addItem = function (title) {
 		var self = this;
@@ -27,7 +27,7 @@ Controller.prototype.addItem = function (title) {
 			return;
 		}
 ```
-* Conflit potentielle entre deux ID identique :
+* Conflit potentiel entre deux ID identiques :
 Dans __store.js__, la génération des ID mise en place ne vérifie pas si l'ID a déjà été donné. On peut potentiellement rencontrer un bug dans l'application
 ```
 Store.prototype.save = function (updateData, callback, id) {
@@ -69,7 +69,7 @@ Store.prototype.save = function (updateData, callback, id) {
 		}
 	};
 ```
-Correction : On ajoute un boolean et une boucle while qui vont permettre de vérifier si l'ID est unique. Dans le cas contraire, la boucle s'exécute jusqu'à ce qu'il le soit
+*Correction* : On ajoute un boolean et une boucle while qui vont permettre de vérifier si l'ID est unique. Dans le cas contraire, la boucle s'exécute jusqu'à ce qu'il le soit
 ```
 Store.prototype.save = function (updateData, callback, id) {
 		var data = JSON.parse(localStorage[this._dbName]);
@@ -122,4 +122,39 @@ Store.prototype.save = function (updateData, callback, id) {
 		}
 	};
 ```
+* Optimisation du code :
+Dans __controller.js__, on supprime une boucle *forEach* ainsi que le *console.log* qui alourdisse inutilement le code :
 ```
+Controller.prototype.removeItem = function (id) {
+		var self = this;
+		var items;
+		self.model.read(function(data) {
+			items = data;
+		});
+
+		items.forEach(function(item) {
+			if (item.id === id) {
+				console.log("Element with ID: " + id + " has been removed.");
+			}
+		});
+
+		self.model.remove(id, function () {
+			self.view.render('removeItem', id);
+		});
+
+		self._filter();
+	};
+```
+Correction : Suppression de la méthode self.model.read() et de items.forEach()
+```
+Controller.prototype.removeItem = function (id) {
+		var self = this;
+	
+		self.model.remove(id, function () {
+			self.view.render('removeItem', id);
+		});
+
+		self._filter();
+	};
+```
+
