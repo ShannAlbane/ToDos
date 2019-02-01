@@ -23,55 +23,56 @@
         -   [Parameters][21]
     -   [\_updateFilterState][22]
         -   [Parameters][23]
--   [qs][24]
-    -   [Parameters][25]
--   [$on][26]
-    -   [Parameters][27]
--   [$delegate][28]
-    -   [Parameters][29]
--   [$parent][30]
-    -   [Parameters][31]
-    -   [Examples][32]
--   [forEach][33]
-    -   [Examples][34]
--   [Model][35]
-    -   [Parameters][36]
-    -   [create][37]
-        -   [Parameters][38]
-    -   [read][39]
-        -   [Parameters][40]
-        -   [Examples][41]
-    -   [update][42]
-        -   [Parameters][43]
-    -   [remove][44]
-        -   [Parameters][45]
-    -   [removeAll][46]
-        -   [Parameters][47]
-    -   [getCount][48]
-        -   [Parameters][49]
--   [Store][50]
-    -   [Parameters][51]
-    -   [find][52]
-        -   [Parameters][53]
-        -   [Examples][54]
-    -   [findAll][55]
-        -   [Parameters][56]
-    -   [save][57]
-        -   [Parameters][58]
-    -   [remove][59]
-        -   [Parameters][60]
-    -   [drop][61]
-        -   [Parameters][62]
--   [Template][63]
-    -   [show][64]
-        -   [Parameters][65]
-        -   [Examples][66]
-    -   [itemCounter][67]
-        -   [Parameters][68]
-    -   [clearCompletedButton][69]
-        -   [Parameters][70]
--   [View][71]
-    -   [Parameters][72]
+-   [Helpers][24]
+    -   [qs][25]
+        -   [Parameters][26]
+    -   [$on][27]
+        -   [Parameters][28]
+    -   [$delegate][29]
+        -   [Parameters][30]
+    -   [$parent][31]
+        -   [Parameters][32]
+        -   [Examples][33]
+    -   [forEach][34]
+        -   [Examples][35]
+-   [Model][36]
+    -   [Parameters][37]
+    -   [create][38]
+        -   [Parameters][39]
+    -   [read][40]
+        -   [Parameters][41]
+        -   [Examples][42]
+    -   [update][43]
+        -   [Parameters][44]
+    -   [remove][45]
+        -   [Parameters][46]
+    -   [removeAll][47]
+        -   [Parameters][48]
+    -   [getCount][49]
+        -   [Parameters][50]
+-   [Store][51]
+    -   [Parameters][52]
+    -   [find][53]
+        -   [Parameters][54]
+        -   [Examples][55]
+    -   [findAll][56]
+        -   [Parameters][57]
+    -   [save][58]
+        -   [Parameters][59]
+    -   [remove][60]
+        -   [Parameters][61]
+    -   [drop][62]
+        -   [Parameters][63]
+-   [Template][64]
+    -   [show][65]
+        -   [Parameters][66]
+        -   [Examples][67]
+    -   [itemCounter][68]
+        -   [Parameters][69]
+    -   [clearCompletedButton][70]
+        -   [Parameters][71]
+-   [View][72]
+    -   [Parameters][73]
 
 ## Todo
 
@@ -178,59 +179,61 @@ Simply updates the filter nav's selected states
 
 -   `currentPage`
 
-## qs
+## Helpers
+
+### qs
 
 Get element(s) by CSS selector
 
-### Parameters
+#### Parameters
 
 -   `selector` **[string][73]** The CSS selector
 -   `scope` **[object][74]** The scope tested, or by default the entire document
 
-## $on
+### $on
 
 Wrap a event listener to an existing element
 
-### Parameters
+#### Parameters
 
 -   `target` **[object][74]** The element targeted
 -   `type` **[boolean][76]** Blur or Focus
 -   `callback` **[function][78]** The callback of the function
 -   `useCapture` **[object][74]** useCapture is composed by the type (blur or focus)
 
-## $delegate
+### $delegate
 
 Attach a handler to event for all elements that match the selector,
 now or in the future, based on a root element
 
-### Parameters
+#### Parameters
 
 -   `target` **[object][74]** The element targeted
 -   `selector` **[string][73]** The CSS selector to filter the element
 -   `type` **[boolean][76]** Blur or Focus
 -   `handler` **[function][78]** Callback executed (handler to attach) if the condition is verified
 
-## $parent
+### $parent
 
 Find the element's parent with the given tag name:
 
-### Parameters
+#### Parameters
 
 -   `element` **[object][74]** The element targeted
 -   `tagName` **[string][73]** The HTML tag to filter
 
-### Examples
+#### Examples
 
 ```javascript
 $parent(qs('a'), 'div');
         //will returns the <div> who contains <a> element
 ```
 
-## forEach
+### forEach
 
 Allow for looping on nodes by chaining
 
-### Examples
+#### Examples
 
 ```javascript
 qsa('.foo').forEach(function () {})
