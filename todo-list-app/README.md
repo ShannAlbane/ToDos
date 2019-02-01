@@ -309,4 +309,6 @@ it('should remove an entry from the model', function () {
 
 Le mode d'emploi utilisateur est disponible [par ici](documentation/docUtilisateur.md)
 
-<a href="documentation/docUtilisateur.md" target="_blank">Par ici</a>
+### Documentation technique
+
+A l'attention des développeurs, la documentation technique est disponible [ici](js/docs/index.html)
