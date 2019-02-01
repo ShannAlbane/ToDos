@@ -2,5 +2,5 @@
 
 ## Console
 
-![alt Image de la console](img/auditConsole)
+![alt Image de la console](img/auditConsole.png)
 
