@@ -1,14 +1,19 @@
 # Todos - The todo app
 
-## Rappel des instructions du projet
+## Sommaire
+1. [Correction des bugs](#bugs)
+2. [Tests Unitaires](#testsUnitaires)
+3. [Utilisation du site](#docUtilisateur)
+4. [Documentation Technique](#docTech)
 
-### Correction des bugs
+
+## Correction des bugs <a name="bugs"></a>
 
 Deux bugs à corriger dans le code.
 
-* La faute de frappe :
+* __La faute de frappe__ :
 
-Au sein de __controller.js__, on trouve une faute lors de l'appel de addItem();
+Au sein de *controller.js*, on trouve une faute lors de l'appel de addItem();
 ```
 Controller.prototype.adddItem = function (title) {
 		var self = this;
@@ -27,7 +32,7 @@ Controller.prototype.addItem = function (title) {
 			return;
 		}
 ```
-* Conflit potentiel entre deux ID identiques :
+* __Conflit potentiel entre deux ID identiques__ :
 Dans __store.js__, la génération des ID mise en place ne vérifie pas si l'ID a déjà été donné. On peut potentiellement rencontrer un bug dans l'application
 ```
 Store.prototype.save = function (updateData, callback, id) {
@@ -122,7 +127,7 @@ Store.prototype.save = function (updateData, callback, id) {
 		}
 	};
 ```
-* Optimisation du code :
+* __Optimisation du code__ :
 Dans __controller.js__, on supprime une boucle *forEach* ainsi que le *console.log* qui alourdissent inutilement le code :
 ```
 Controller.prototype.removeItem = function (id) {
@@ -145,7 +150,7 @@ Controller.prototype.removeItem = function (id) {
 		self._filter();
 	};
 ```
-Correction : Suppression de la méthode self.model.read() et de items.forEach()
+*Correction* : Suppression de la méthode self.model.read() et de items.forEach()
 ```
 Controller.prototype.removeItem = function (id) {
 		var self = this;
@@ -158,7 +163,7 @@ Controller.prototype.removeItem = function (id) {
 	};
 ```
 
-## Tests unitaires
+## Tests unitaires <a name="testsUnitaires"></a>
 
 Le projet possédait déjà certains tests, effectués avec le framework Jasmine. <br />
 On trouve les tests unitaires dans le dossier test/ControllerSpec.js <br />
@@ -305,10 +310,10 @@ it('should remove an entry from the model', function () {
 			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
 		});
 ```
-### Utilisation de l'application
+## Utilisation de l'application <a name="docUtilisateur"></a>
 
 Le mode d'emploi utilisateur est disponible [par ici](documentation/docUtilisateur.md)
 
-### Documentation technique
+## Documentation technique <a name="docTech"></a>
 
 A l'attention des développeurs, la documentation technique est disponible [ici](js/docs/index.html)
