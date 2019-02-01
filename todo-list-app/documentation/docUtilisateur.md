@@ -52,7 +52,7 @@ A gauche de l'entrée, on remarque une case à cocher. Il suffit de cliquer sur 
 
 ![alt Compléter une entrée active](img/entreeComplete.png)
 
-## Changer de filtres <a name="filtre"></a>
+## Changer de filtres <a name="filtres"></a>
 
 En bas de la todo liste, il existe trois filtres :
 
