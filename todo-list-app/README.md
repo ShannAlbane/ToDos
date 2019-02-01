@@ -305,7 +305,3 @@ it('should remove an entry from the model', function () {
 			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
 		});
 ```
-
-### Utilisation du site
-Le site web Todos permet de créer, de modifier, et de suivre sa todo liste. Chaque entrée dans la todo peut être modifiée, marquée comme complétée, et remise en active. <br />
-Par ailleurs, le site garde en mémoire la todo liste jusqu'à la prochaine utilisation. 
