@@ -2,7 +2,14 @@
 Le site web Todos permet de créer, de modifier, et de suivre sa todo liste. Chaque entrée dans la todo peut être modifiée, marquée comme complétée, et remise en active. <br />
 Par ailleurs, le site garde en mémoire la todo liste jusqu'à la prochaine utilisation. 
 
-## Présentation de la page web
+## Sommaire : 
+1. [Présentation de la page web](#presPage)
+2. [Ajouter une entrée](#ajout)
+3. [Modifier une entrée](#modif)
+4. [Rendre une entrée dite "active" en "complétée"](#complet)
+5. [Changer de filtres](#filtres)
+
+## Présentation de la page web <a name="presPage"></a>
 ![alt Page web globale](img/global.png)
 1. __L'encoche__ : Permet de cocher/décocher toutes les entrées de la todo liste
 
@@ -16,7 +23,7 @@ Par ailleurs, le site garde en mémoire la todo liste jusqu'à la prochaine util
 
 6. __Supprimer__ : Bouton qui permet d'effacer les entrées complètes et de laisser uniquement les entrées actives
 
-## Ajouter une entrée
+## Ajouter une entrée <a name="ajout"></a>
 On se place dans la zone de texte : 
 
 ![alt Placement dans la zone de texte](img/ajoutEntreeBefore.png)
@@ -29,7 +36,7 @@ Pour l'ajouter, on appuie sur la touche Entrée du clavier et elle s'ajoute à l
 
 ![alt Ajout d'une entrée terminé](img/ajoutEntreeApres.png)
 
-## Modifier une entrée 
+## Modifier une entrée <a name="modif"></a>
 
 Il nous suffit de double cliquer sur l'entrée à modifier : 
 
@@ -39,13 +46,13 @@ Une fois le texte modifié, on appuie encore une fois sur la touche Entrée pour
 
 ![alt Entrée modifiée](img/modifEntreeApres.png)
 
-## Rendre une entrée dite "active" en "complétée"
+## Rendre une entrée dite "active" en "complétée" <a name="complet"></a>
 
 A gauche de l'entrée, on remarque une case à cocher. Il suffit de cliquer sur cette case à cocher pour que l'entrée soit en complétée : 
 
 ![alt Compléter une entrée active](img/entreeComplete.png)
 
-## Changer de filtres
+## Changer de filtres <a name="filtre"></a>
 
 En bas de la todo liste, il existe trois filtres :
 
