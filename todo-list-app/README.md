@@ -160,9 +160,9 @@ Controller.prototype.removeItem = function (id) {
 
 ## Tests unitaires
 
-Le projet possédait déjà certains tests, effectués avec le framework Jasmine.
-On trouve les tests unitaires dans le dossier test/ControllerSpec.js
-Rajout de 10 tests unitaires supplémentaires (identifiable par le commentaire //Test ajouté) : 
+Le projet possédait déjà certains tests, effectués avec le framework Jasmine. <br />
+On trouve les tests unitaires dans le dossier test/ControllerSpec.js <br />
+Rajout de 10 tests unitaires supplémentaires (identifiable par le commentaire //Test ajouté) : <br />
 
 1. Doit montrer toutes les entrées au démarrage
 
@@ -176,7 +176,7 @@ Rajout de 10 tests unitaires supplémentaires (identifiable par le commentaire /
 	});
 ```
 
-2. Doit montrer toutes les entrées actives
+2. Doit montrer toutes les entrées actives <br />
 Au sein du describe('routing')
 ```
 		it('should show active entries', function () {
@@ -189,7 +189,7 @@ Au sein du describe('routing')
 			expect(view.render).toHaveBeenCalledWith('showEntries', [todo]);
 		});
 ```
-3. Doit montrer toutes les entrées complètes
+3. Doit montrer toutes les entrées complètes <br />
 Au sein du describe('routing')
 ```
 		it('should show completed entries', function () {
@@ -239,7 +239,7 @@ Au sein du describe('routing')
 	}); 
 ```
 
-7. Doit cocher toutes les entrées en complétées
+7. Doit cocher toutes les entrées en complétées <br />
 Au sein du describe('toggle all')
 ```
 		it('should toggle all todos to completed', function () {
@@ -257,7 +257,7 @@ Au sein du describe('toggle all')
 		});
 ```
 
-8. Doit mettre à jour la vue
+8. Doit mettre à jour la vue <br />
 Au sein du describe('toggle all')
 ```
 		it('should update the view', function () {
@@ -275,7 +275,7 @@ Au sein du describe('toggle all')
 		});
 ```
 
-9. Doit ajouter une nouvelle todo au model
+9. Doit ajouter une nouvelle todo au model <br />
 Au sein du describe('new todo')
 ```
 it('should add a new todo to the model', function () {
@@ -290,7 +290,7 @@ it('should add a new todo to the model', function () {
 			expect(model.create).toHaveBeenCalledWith('new todo', jasmine.any(Function))
 		});
 ```
-10. Doit supprimer une entrée du model
+10. Doit supprimer une entrée du model <br />
 Au sein du describe('element removal')
 ```
 it('should remove an entry from the model', function () {
@@ -305,3 +305,7 @@ it('should remove an entry from the model', function () {
 			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
 		});
 ```
+
+### Utilisation du site
+Le site web Todos permet de créer, de modifier, et de suivre sa todo liste. Chaque entrée dans la todo peut être modifiée, marquée comme complétée, et remise en active. <br />
+Par ailleurs, le site garde en mémoire la todo liste jusqu'à la prochaine utilisation. 
