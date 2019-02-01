@@ -2,7 +2,7 @@
 
 ## Sommaire
 1. [Correction des bugs](#bugs)
-2. [Tests Unitaires](#testsUnitaires)
+2. [Tests unitaires](#testsUnitaires)
 3. [Utilisation du site](#docUtilisateur)
 4. [Documentation Technique](#docTech)
 
