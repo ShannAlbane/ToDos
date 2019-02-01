@@ -1,6 +1,15 @@
 # Audit de Performance : [Site concurrent](http://todolistme.net/)
 
-## Console
+## Sommaire
+
+1. [Console](#console)
+2. [DevTools Chrome](#devTools)
+  1. [Performance](#subPerformance)
+  2. [PWA](#subPWA)
+  3. [Accessibilité](#subAccess
+3. [Conclusion](#conclusion)
+
+## Console <a name="console"></a>
 
 ![alt Image de la console](img/auditConsole.png)
 
@@ -10,13 +19,13 @@ Il existe également une erreur due à un *id* non présent dans un élément HT
 
 Et enfin, on constate trois *console.log()* qui ne donnent pas un rendu propre et optimisé.
 
-## DevTools Chrome
+## DevTools Chrome <a name="devTools"></a>
 
 ![alt Visuel de l'onglet audit de la console de Chrome](img/auditDevTools.png)
 
 L'analyse du navigateur décompose la performance en plusieurs catégories. Nous pouvons d'ores et déjà observer une sous-performance dans trois catégories (Performance, Accessibilité et Best Practices) et une catégorie en véritable difficulté (Progressive Web App).
 
-### Performance
+### Performance <a name="subPerformance"></a>
 
 ![alt Screenshot de la performance](img/auditPerformance.png)
 
@@ -34,7 +43,7 @@ __Négatif__ :
 
 __Opportunités__ : Précharger les images au sein des différents scripts javascript, et utiliser la version .min de jQuery permettrait un gain significatif de performance au chargement. Les images pourraient également être exploitées en sprites.
 
-### Progressive Web App : 
+### Progressive Web App : <a name="subPWA"></a>
 
 __Positif__ : Pour un viewport Desktop, le contenu est bien configuré
 
@@ -48,7 +57,7 @@ __Négatif__ :
 
 __Opportunités__ : A l'heure actuelle, il est important de faire en sorte que son site soit multisupport, c'est-à-dire utilisable sur n'importe quel type d'écran. Cela permet une plus grande visiblité.
 
-### Accessibilité 
+### Accessibilité <a name="subAccess"></a>
 
 __Positif__ : Le code est bien construit, il utilise correctement les attributs ; les navigateurs comprennent les descriptions.
 
@@ -59,6 +68,7 @@ __Négatif__ :
 
 __Opportunités__ : Avoir un code bien construit permet au navigateur de mieux l'interpréter et de gagner une meilleure visibilité sur le web. De plus, étant donné qu'il existe plusieurs types de support (tablettes, smartphones, desktop...), il est essentiel d'avoir un code bien rédigé pour qu'il soit compréhensible de tous.
 
-En conclusion, le site de nos concurrents possède plusieurs problèmes intéressants qui nous interrogent sur notre propre site web. De même, il est aussi bénéfique de comparer les points positifs afin de nous assurer que notre site est aussi performant que possible.
+## Conclusion <a name="conclusion"></a>
+Le site de nos concurrents possède plusieurs problèmes intéressants qui nous interrogent sur notre propre site web. De même, il est aussi bénéfique de comparer les points positifs afin de nous assurer que notre site est aussi performant que possible.
 
 Après cet audit, il est en mon sens essentiel d'optimiser la performance du site. De même, l'axe responsive peut-être une expansion bienvenue, car si les éléments se redimensionnent sur notre Todo, elle reste tout de même inutilisable sur plus petit écran. 
