@@ -305,3 +305,8 @@ it('should remove an entry from the model', function () {
 			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
 		});
 ```
+### Utilisation de l'application
+
+Le mode d'emploi utilisateur est disponible [par ici](documentation/docUtilisateur.md)
+
+<a href="documentation/docUtilisateur.md" target="_blank">Par ici</a>
