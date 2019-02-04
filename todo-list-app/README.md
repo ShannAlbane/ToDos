@@ -5,6 +5,7 @@
 2. [Tests unitaires](#testsUnitaires)
 3. [Utilisation du site](#docUtilisateur)
 4. [Documentation Technique](#docTech)
+5. [Comparatif](#comparatif)
 
 
 ## Correction des bugs <a name="bugs"></a>
@@ -317,3 +318,7 @@ Le mode d'emploi utilisateur est disponible [par ici](documentation/docUtilisate
 ## Documentation technique <a name="docTech"></a>
 
 A l'attention des développeurs, la documentation technique est disponible [ici](documentation/docTechnique.md)
+
+## Comparatif <a name="comparatif"></a>
+
+Vous trouver dans cette section ([ici](documentation/audit.md)) l'audit technique d'un site concurrent réaliser, dans le but de potentiellement scaler notre site. 
